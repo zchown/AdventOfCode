@@ -1,0 +1,1 @@
+-- day 1 in haskell
