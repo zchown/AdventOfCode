@@ -1,6 +1,7 @@
 module Day1 where
 
-import Data.Composition
+import Data.Composition ((.:))
+import Data.Function (on)
 import Data.List (sort)
 
 readFileToList :: String -> IO [[Int]]
@@ -14,13 +15,10 @@ readFileToList filename = do
 distances :: [Int] -> [Int] -> Int
 distances = sum .: map abs .: zipWith (-)
 
-runProblem :: [[Int]] -> Int
-runProblem (x:y:_) = distances (sort x) (sort y)
-
 runProblem1 :: IO ()
 runProblem1 = do
-  input <- readFileToList "inputs/input1.txt"
-  print $ runProblem input
+  (x:y:_) <- readFileToList "inputs/input1.txt"
+  print $ distances (sort x) (sort y)
 
 numberOfMatches :: Int -> [Int] -> Int
 numberOfMatches = length .: filter . (==)
