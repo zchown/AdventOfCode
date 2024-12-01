@@ -1,7 +1,6 @@
 module Day1 where
 
 import Data.Composition ((.:))
-import Data.Function (on)
 import Data.List (sort)
 
 readFileToList :: String -> IO [[Int]]
